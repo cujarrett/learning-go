@@ -10,7 +10,7 @@ Go, also known as Golang, is a statically typed, compiled programming language d
 Go is common in many [Cloud Native](https://www.cncf.io/) solutions such as Kubernetes, Terraform, Prometheus, and many more. It was the tenth most popular language in 2019 on GitHub
 
 ## Take Aways
-#### The Basics
+### The Basics
 main.go
 ```
 package main
@@ -21,16 +21,20 @@ func main() {
 	fmt.Println("Hello world.")
 }
 ```
-### Go CLI
-- `go build` -> Compiles a bunch of go source code files
-- `go run` -> Compiles and executes one or two files
-- `go fmt` -> Formats all the code in each file in the current directory
-- `go install` -> Compiles and installs a package
-- `go get` -> Downloads the raw source code of someone else's package
-- `go test` -> Runs any tests associated with the current project
+
+### [Go CLI](https://golang.org/cmd/go/)
+Some common uses:
+| CLI Command  | Use                                                        |
+|--------------|------------------------------------------------------------|
+| `go build`   | Compiles a bunch of go source code files                   |
+| `go run`     | Compiles and executes one or two files                     |
+| `go fmt`     | Formats all the code in each file in the current directory |
+| `go install` | Compiles and installs a package                            |
+| `go get`     | Downloads the raw source code of someone else's package    |
+| `go test`    | Runs any tests associated with the current project         |
 
 ### Go Packages
-You can think of a `Package` as synonymous with `Project` as synonymous with `Workspace`
+The purpose of a package in Go is to group together code with a similar purpose.
 
 #### Package Types
 - `Executable` - Generates a file that we can run
@@ -40,13 +44,20 @@ You must use `main` as the package name in order to make a `Executable` package 
 
 Anytime you make a `Executable` package, you must include a function inside of it called `main`.
 
-### What does `import fmt` mean?
+### Import
+In Go you use import statements to give your package access to code written in another package.
 
-### What's that `func` thing?
+Example:
+```
+import "fmt"
+```
+
+### Functions
+Use `func` to declare functions in Go.
 
 ### How is the main.go file organized?
 
 ## Things I like
 
 ## Things I'm not a huge fan of
-- It's pretty opinionated
+- It's really (really) opinionated. I was five minutes into Go and it was replacing my space indented code with tabs becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Really?](https://media.giphy.com/media/CggoHW4h87Ktq/giphy.gif)
