@@ -5,7 +5,7 @@ It's a small set of hacks to learn [Go](https://golang.org/). I'm using `Golang 
 
 Go short for Golang is expressive, concise, clean, and efficient. Its concurrency mechanisms make it easy to write programs that get the most out of multicore and networked machines, while its novel type system enables flexible and modular program construction. Go compiles quickly to machine code yet has the convenience of garbage collection and the power of run-time reflection. It's a fast, statically typed, compiled language that feels like a dynamically typed, interpreted language.
 
-Go, also known as Golang, is a statically typed, compiled programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. Go is syntactically similar to C, but with memory safety, garbage collection, structural typing, and CSP-style concurrency. Go was designed at Google in 2007 to improve programming productivity in an era of multicore, networked machines and large codebases.
+Go is a statically typed, compiled programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. Go is syntactically similar to C, but with memory safety, garbage collection, structural typing, and CSP-style concurrency. Go was designed at Google in 2007 to improve programming productivity in an era of multicore, networked machines and large codebases.
 
 Go is common in many [Cloud Native](https://www.cncf.io/) solutions such as Kubernetes, Terraform, Prometheus, and many more. It was the tenth most popular language in 2019 on GitHub
 
@@ -52,12 +52,37 @@ Example:
 import "fmt"
 ```
 
+### Variables
+You can use the longer or shorthand manner of declaring variables. They achieve the same outcome. The latter relies on the Go compiler to determine the type.
+```
+	var card string = "Ace of Spaces"
+```
+```
+	card := "Ace of Spades"
+```
+
+After the declaration the values are updated as such:
+```
+func main() {
+	var card string = "Ace of Spaces"
+	card = "Five of Diamonds"
+	fmt.Println(card) // Five of Diamonds
+}
+```
+```
+func main() {
+	card := "Ace of Spades"
+	card = "Five of Diamonds"
+	fmt.Println(card) // Five of Diamonds
+}
+```
 ### Functions
 Use `func` to declare functions in Go.
 
 ### How is the main.go file organized?
 
 ## Things I like
+- Types in Go feel simple :+1:
 
 ## Things I'm not a huge fan of
-- It's really (really) opinionated. I was five minutes into Go and it was replacing my space indented code with tabs becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Really?](https://media.giphy.com/media/CggoHW4h87Ktq/giphy.gif)
+- It's really (really) opinionated. I was five minutes into Go and it was replacing my space indented code with tabs becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Really?](https://media.giphy.com/media/CggoHW4h87Ktq/giphy.gif) [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
