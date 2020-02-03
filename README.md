@@ -24,6 +24,7 @@ func main() {
 
 ### [Go CLI](https://golang.org/cmd/go/)
 Some common uses:
+
 | CLI Command  | Use                                                        |
 |--------------|------------------------------------------------------------|
 | `go build`   | Compiles a bunch of go source code files                   |
