@@ -80,8 +80,6 @@ func main() {
 ### Functions
 Use `func` to declare functions in Go.
 
-### How is the main.go file organized?
-
 ## Things I like
 - Types in Go feel simple :+1:
 
