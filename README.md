@@ -100,11 +100,11 @@ Arrays and Slices in Go must define a singular type.
 
 ### Loops
 ```
-	cards := []string{"Ace of Spades", newCard()}
+cards := []string{"Ace of Spades", newCard()}
 
-	for index, card := range cards {
-		fmt.Println(index, card)
-	}
+for index, card := range cards {
+	fmt.Println(index, card)
+}
 ```
 
 ## Things I like
