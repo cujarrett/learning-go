@@ -80,8 +80,36 @@ func main() {
 ### Functions
 Use `func` to declare functions in Go.
 
+Functions that return must declare the return type.
+```
+func main() {
+	card := newCard()
+	fmt.Println(card)
+}
+
+func newCard() string {
+	return "Five of Diamonds"
+}
+```
+
+### Arrays & Slices
+- Array in Go is a fixed length list of things
+- Slice in Go is an array that can grow or shrink
+
+Arrays and Slices in Go must define a singular type.
+
+### Loops
+```
+	cards := []string{"Ace of Spades", newCard()}
+
+	for index, card := range cards {
+		fmt.Println(index, card)
+	}
+```
+
 ## Things I like
 - Types in Go feel simple :+1:
+- Short hand variables option
 
 ## Things I'm not a huge fan of
 - It's really (really) opinionated. I was five minutes into Go and it was replacing my space indented code with tabs becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Really?](https://media.giphy.com/media/CggoHW4h87Ktq/giphy.gif) [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
