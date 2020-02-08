@@ -2,7 +2,6 @@ package main
 
 import "fmt"
 
-// Create a new type of "deck" which is a slice of strings
 type deck []string
 
 func newDeck() deck {
@@ -19,9 +18,12 @@ func newDeck() deck {
 	return cards
 }
 
-// Create a print function
 func (d deck) print() {
 	for index, card := range d {
 		fmt.Println(index, card)
 	}
+}
+
+func deal(d deck, handleSize int) (deck, deck) {
+	return d[:handleSize], d[handleSize:]
 }
