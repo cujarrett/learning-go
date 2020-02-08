@@ -12,7 +12,7 @@ Go is common in many [Cloud Native](https://www.cncf.io/) solutions such as Kube
 ## Take Aways
 ### The Basics
 main.go
-```
+```go
 package main
 
 import "fmt"
@@ -49,28 +49,32 @@ Anytime you make a `Executable` package, you must include a function inside of i
 In Go you use import statements to give your package access to code written in another package.
 
 Example:
-```
+```go
 import "fmt"
 ```
 
 ### Variables
 You can use the longer or shorthand manner of declaring variables. They achieve the same outcome. The latter relies on the Go compiler to determine the type.
-```
+```go
+...
 	var card string = "Ace of Spaces"
 ```
-```
+```go
+...
 	card := "Ace of Spades"
 ```
 
 After the declaration the values are updated as such:
-```
+```go
+...
 func main() {
 	var card string = "Ace of Spaces"
 	card = "Five of Diamonds"
 	fmt.Println(card) // Five of Diamonds
 }
 ```
-```
+```go
+...
 func main() {
 	card := "Ace of Spades"
 	card = "Five of Diamonds"
@@ -81,7 +85,8 @@ func main() {
 Use `func` to declare functions in Go.
 
 Functions that return must declare the return type.
-```
+```go
+...
 func main() {
 	card := newCard()
 	fmt.Println(card)
@@ -92,14 +97,45 @@ func newCard() string {
 }
 ```
 
+### Multiple return values
+
+```go
+...
+func main() {
+    color1, color2, color3 := colors()
+
+    fmt.Println(color1, color2, color3)
+}
+
+func colors() (string, string, string) {
+    return "red", "yellow", "blue"
+}
+```
+
+### Functions with receiver, parameters, and a return
+'describe' is a function with a receiver of type 'color' that requires an argument of type 'string', then returns a value of type 'string'
+```go
+...
+func (c color) describe(description string) (string) {
+   return string(c) + " " + description
+}
+```
+
 ### Arrays & Slices
 - Array in Go is a fixed length list of things
 - Slice in Go is an array that can grow or shrink
-
-Arrays and Slices in Go must define a singular type.
+- Arrays and Slices in Go must define a singular type
+- Go is zero based
+- Slice range sytnax is startIndexIncluding to upToNotIncluding
+  ```go
+	fruits := []string{"apple", "banana", "grape", "orange"}
+	fruits[0:2] // "apple" "banana"
+	fruits[:2] // "apple" "banana"
+	```
 
 ### Loops
-```
+```go
+...
 cards := []string{"Ace of Spades", newCard()}
 
 for index, card := range cards {
@@ -113,3 +149,4 @@ for index, card := range cards {
 
 ## Things I'm not a huge fan of
 - It's really (really) opinionated. I was five minutes into Go and it was replacing my space indented code with tabs becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Really?](https://media.giphy.com/media/CggoHW4h87Ktq/giphy.gif) [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
+- Go's convention of using single letter variables
