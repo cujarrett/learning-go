@@ -162,5 +162,6 @@ for index, card := range cards {
 - Go's compliler checking import references on save
 
 ## Things I'm not a huge fan of
-- It's really (really) opinionated. I was five minutes into Go and it was replacing my space indented code with tabs becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Go reasons these benifits for this choice](https://golang.org/doc/effective_go.html#formatting). [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
-- Go's convention of using single letter variables
+- It's really (really) opinionated
+- Mandated formatting with tabs becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Go reasons these benifits for this choice](https://golang.org/doc/effective_go.html#formatting). [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
+- Go's convention of using single letter variables feels bad
