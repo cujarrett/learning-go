@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 type deck []string
@@ -46,7 +48,7 @@ func (d deck) toString() string {
 	return strings.Join([]string(d), ", ")
 }
 
-// saveToFile function to write the deck of cards to a file using ioutil's string byte of the string
+// saveToFile function to write the deck of cards to a file using ioutil
 // It has a receiver d of type deck
 // It accepts a single argument called filename of type string
 // It returns a error type (which comes from ioutil's WriteFile)
@@ -54,6 +56,9 @@ func (d deck) saveToFile(filename string) error {
 	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 }
 
+// newDeckFromFile function to create a deck of cards from a file using ioutil
+// It accepts a single argument called filename of type string
+// It returns a deck type
 func newDeckFromFile(filename string) deck {
 	byteSlice, errorObject := ioutil.ReadFile(filename)
 	if errorObject != nil {
@@ -63,4 +68,17 @@ func newDeckFromFile(filename string) deck {
 
 	sliceOfStrings := strings.Split(string(byteSlice), ", ")
 	return deck(sliceOfStrings)
+}
+
+// shuffle function to shuffle the deck of cards
+// It has a receiver d of type deck
+func (d deck) shuffle() {
+	randomSeed := time.Now().UnixNano()
+	source := rand.NewSource(randomSeed)
+	random := rand.New(source)
+
+	for index := range d {
+		newPosition := random.Intn(len(d) - 1)
+		d[index], d[newPosition] = d[newPosition], d[index]
+	}
 }

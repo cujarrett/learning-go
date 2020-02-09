@@ -149,6 +149,11 @@ for index, card := range cards {
 }
 ```
 
+### Testing in Go
+Go testing is not RSpec, mocha, jasmine, selenium, etc. To make a test, create a new file ending in `_test.go`. To run all tests in a package run the `go test` command.
+
+
+
 ### Type Conversion
 ```go
 []byte("Hello world.")
@@ -160,8 +165,10 @@ for index, card := range cards {
 - Types in Go feel simple :+1:
 - Short hand variables option
 - Go's compliler checking import references on save
+- The [VS Code go plugin](https://github.com/microsoft/vscode-go) written by Microsoft is pretty great
 
 ## Things I'm not a huge fan of
 - It's really (really) opinionated
 - Mandated formatting with tabs becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Go reasons these benifits for this choice](https://golang.org/doc/effective_go.html#formatting). [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
 - Go's convention of using single letter variables feels bad
+- Go's test framework doesn't provide any info about how many tests ran or how many tests passed or failed
