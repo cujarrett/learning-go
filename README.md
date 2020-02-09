@@ -9,21 +9,15 @@ Go is a statically typed, compiled programming language designed at Google by Ro
 
 Go is common in many [Cloud Native](https://www.cncf.io/) solutions such as Kubernetes, Terraform, Prometheus, and many more. It was the tenth most popular language in 2019 on GitHub
 
+## Learning Problems Completed
+- [cards](./cards) - A simple app that builds a deck of playing cards with functions for deal, shuffle, print, etc.
+- [even-and-odds](./even-and-odds) - A simple kata to parse a collection of numbers and print if they are even or odd.
+- [structs] - A simple bit of code to show the use of structs, pointers, and memory addresses.
+
 ## Take Aways
-### The Basics
-main.go
-```go
-package main
 
-import "fmt"
-
-func main() {
-	fmt.Println("Hello world.")
-}
-```
-
-### [Go CLI](https://golang.org/cmd/go/)
-Some common uses:
+### Go CLI
+Go has a [Command Line Interface (CLI)](https://golang.org/cmd/go/). Some common uses of Go's CLI:
 
 | CLI Command  | Use                                                        |
 |--------------|------------------------------------------------------------|
@@ -99,11 +93,10 @@ func newCard() string {
 }
 ```
 
-### Receiver Functions vs Passing in arguments to a Function
+#### Receiver Functions vs Passing in arguments to a Function
 Receiver Functions execute on the current object in memory where as a normal function would take in the object via arguments. Receiver Functions is usually by reference and passing in arguments to a function is by value.
 
 ### Multiple return values
-
 ```go
 ...
 func main() {
@@ -114,16 +107,6 @@ func main() {
 
 func colors() (string, string, string) {
     return "red", "yellow", "blue"
-}
-```
-
-### Examples
-#### Function with a receiver, parameters, and a return
-'describe' is a function with a receiver of type 'color' that requires an argument of type 'string', then returns a value of type 'string'
-```go
-...
-func (c color) describe(description string) (string) {
-   return string(c) + " " + description
 }
 ```
 
@@ -139,6 +122,9 @@ func (c color) describe(description string) (string) {
 	fruits[:2] // "apple" "banana"
 	```
 
+### Struct
+A struct is a collection of fields. There are three ways of declaring struts.
+
 ### Loops
 ```go
 ...
@@ -149,17 +135,45 @@ for index, card := range cards {
 }
 ```
 
-### Testing in Go
-Go testing is not RSpec, mocha, jasmine, selenium, etc. To make a test, create a new file ending in `_test.go`. To run all tests in a package run the `go test` command.
-
-
-
 ### Type Conversion
+For example:
 ```go
 []byte("Hello world.")
 ```
 - `[]byte` - The type we want
 - `("Hello world.")` - The type we have
+
+### Zero Values
+Variables declared without an explicit initial value are given their zero value. The zero value is:
+
+- `0` for numeric types
+- `false` for the boolean type
+- `""` (the empty string) for strings
+
+### Pass by Value Language
+Strictly speaking, there is only one way to pass parameters in Go - by value. Every time a variable is passed as parameter, a new copy of the variable is created and passed to called function or method. The copy is allocated at a different memory address. The [structs](./structs/main.go) code shows a good example use.
+
+Whenever you pass an integer, float, string, or strut into a function it creates a copy of each argument, and these copies are used inside of the function.
+
+Some syntax associated with this:
+- `&foo` - Gives the memory address of the foo value this variable is pointing at
+- `*foo` - Gives the value of this memory address is  pointing at
+
+![pointers-and-address-info](https://user-images.githubusercontent.com/16245634/74107990-ed524680-4b3a-11ea-945c-e9154ce7bb04.png)
+
+![pointer-use-in-receiver-vs-in-use](https://user-images.githubusercontent.com/16245634/74108076-f4c61f80-4b3b-11ea-9a7c-02f03fd8fa3e.png)
+
+#### Gotcha's in Go
+![some-types-behave-different](https://user-images.githubusercontent.com/16245634/74108425-f0036a80-4b3f-11ea-95a1-5bd334beef49.png)
+
+- Everything in Go is pass by value
+- When we create a slice in Go it will automatically create an array and a structure that records the length of the slice, the capacity of the slice, and a reference to the underlying array
+- With "value types" in Go, we have to worry about pointers if we want to pass a value to a function and modify the orginal value inside the function
+- With "reference types" we do not need to worry about pointers if we want to pass a value to a function and modify the orginal valye inside the function
+- A slice is a "reference type"
+
+### Testing in Go
+Go testing is not RSpec, mocha, jasmine, selenium, etc. To make a test, create a new file ending in `_test.go`. To run all tests in a package run the `go test` command.
 
 ## Things I like
 - Types in Go feel simple :+1:
@@ -169,6 +183,9 @@ Go testing is not RSpec, mocha, jasmine, selenium, etc. To make a test, create a
 
 ## Things I'm not a huge fan of
 - It's really (really) opinionated
-- Mandated formatting with tabs becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Go reasons these benifits for this choice](https://golang.org/doc/effective_go.html#formatting). [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
+- Mandated formatting choices
+  - Tabs for indents becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Go reasons these benifits for this choice](https://golang.org/doc/effective_go.html#formatting). [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
+  - Comma dangle
 - Go's convention of using single letter variables feels bad
 - Go's test framework doesn't provide any info about how many tests ran or how many tests passed or failed
+- Go's [struct](#structs) allowed construction of using ordered values feels prone to mistakes in the future when the order of the struct changes. I'm glad they offer a named attribute option.
