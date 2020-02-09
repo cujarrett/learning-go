@@ -1,9 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+)
 
 type deck []string
 
+// "Constructor" to build a new deck of playing cards
 func newDeck() deck {
 	cards := deck{}
 
@@ -18,12 +23,32 @@ func newDeck() deck {
 	return cards
 }
 
+// print function that prints all cards in the deck
+// It has a receiver d of type deck
 func (d deck) print() {
 	for index, card := range d {
 		fmt.Println(index, card)
 	}
 }
 
+// deal function that splits the deck into two parts based on the way it's called
+// It accepts two arguments, the first being d of type deck and the second handleSize of type int
+// It has two returns, each of type deck
 func deal(d deck, handleSize int) (deck, deck) {
 	return d[:handleSize], d[handleSize:]
+}
+
+// toString function to print each card in the deck seperated by a comma and a space
+// It has a receiver d of type deck
+// It returns a string type
+func (d deck) toString() string {
+	return strings.Join([]string(d), ", ")
+}
+
+// saveToFile function to write the deck of cards to a file using ioutil's string byte of the string
+// It has a receiver d of type deck
+// It accepts a single argument called filename of type string
+// It returns a error type (which comes from ioutil's WriteFile)
+func (d deck) saveToFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 }

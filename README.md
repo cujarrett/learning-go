@@ -37,6 +37,8 @@ Some common uses:
 ### Go Packages
 The purpose of a package in Go is to group together code with a similar purpose.
 
+The Go packages are documented [here](https://golang.org/pkg/)
+
 #### Package Types
 - `Executable` - Generates a file that we can run
 - `Reusable` - Code used as "helpers", good place to put reusable logic
@@ -97,6 +99,9 @@ func newCard() string {
 }
 ```
 
+### Receiver Functions vs Passing in arguments to a Function
+Receiver Functions execute on the current object in memory where as a normal function would take in the object via arguments. Receiver Functions is usually by reference and passing in arguments to a function is by value.
+
 ### Multiple return values
 
 ```go
@@ -112,7 +117,8 @@ func colors() (string, string, string) {
 }
 ```
 
-### Functions with receiver, parameters, and a return
+### Examples
+#### Function with a receiver, parameters, and a return
 'describe' is a function with a receiver of type 'color' that requires an argument of type 'string', then returns a value of type 'string'
 ```go
 ...
@@ -143,10 +149,18 @@ for index, card := range cards {
 }
 ```
 
+### Type Conversion
+```go
+[]byte("Hello world.")
+```
+- `[]byte` - The type we want
+- `("Hello world.")` - The type we have
+
 ## Things I like
 - Types in Go feel simple :+1:
 - Short hand variables option
+- Go's compliler checking import references on save
 
 ## Things I'm not a huge fan of
-- It's really (really) opinionated. I was five minutes into Go and it was replacing my space indented code with tabs becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Really?](https://media.giphy.com/media/CggoHW4h87Ktq/giphy.gif) [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
+- It's really (really) opinionated. I was five minutes into Go and it was replacing my space indented code with tabs becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Go reasons these benifits for this choice](https://golang.org/doc/effective_go.html#formatting). [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
 - Go's convention of using single letter variables
