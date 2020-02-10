@@ -125,6 +125,55 @@ func colors() (string, string, string) {
 ### Struct
 A struct is a collection of fields. There are three ways of declaring struts.
 
+- **Value Type**
+- All keys must be the same type
+- Values can be of different type
+- Keys don't support indexing
+- You need to know all the different fields at compile time
+- Use to represent a "thing" with a lot of different properties
+
+```go
+type Vertex struct {
+	X int
+	Y int
+}
+
+func main() {
+	fmt.Println(Vertex{1, 2}) // {1 2}
+}
+```
+
+### Maps
+A map maps keys to values. The zero value of a map is `nil`. A `nil` map has no keys, nor can keys be added.
+
+- **Reference Type**
+- All keys must be the same type
+- All values must be the same type
+- Keys are indexed, meaning we can iterate over them
+- Use to represent a collection of related properties
+- Don't need to know all the keys at compile time
+
+```go
+	colors := map[string]string{
+		"red":    "#f44336",
+		"pink":   "#e91e63",
+		"purple": "#9c27b0",
+	}
+
+	fmt.Println(colors) // map[pink:#e91e63 purple:#9c27b0 red:#f44336]
+```
+
+or
+
+```go
+	moreColors := make(map[string]string)
+	moreColors["blue"] = "#03a9f4"
+	moreColors["cyan"] = "#00bcd4"
+	moreColors["teal"] = "#009688"
+
+	fmt.Println(moreColors) // map[blue:#03a9f4 cyan:#00bcd4 teal:#009688]
+```
+
 ### Loops
 ```go
 ...
