@@ -262,6 +262,11 @@ func (spanishBot) getGreeting() string {
 ### Testing in Go
 Go testing is not RSpec, mocha, jasmine, selenium, etc. To make a test, create a new file ending in `_test.go`. To run all tests in a package run the `go test` command.
 
+Useful test command variants:
+- `go test -coverprofile=coverage.out` - Get a report of run tests
+- `go tool cover -html=coverage.out` - Get a nice HTML report of run tests
+- `go test -v` - A more detailed test report of what tests pass and what failed
+
 ## Things I like
 - Types in Go feel simple :+1:
 - Short hand variables option
@@ -271,8 +276,7 @@ Go testing is not RSpec, mocha, jasmine, selenium, etc. To make a test, create a
 ## Things I'm not a huge fan of
 - It's really (really) opinionated
 - Mandated formatting choices
-  - Tabs for indents becuase it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Go reasons these benifits for this choice](https://golang.org/doc/effective_go.html#formatting). [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
+  - Tabs for indents because it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Go reasons these benifits for this choice](https://golang.org/doc/effective_go.html#formatting). [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
   - Comma dangle
 - Go's convention of using single letter variables feels bad
-- Go's test framework doesn't provide any info about how many tests ran or how many tests passed or failed
 - Go's [struct](#structs) allowed construction of using ordered values feels prone to mistakes in the future when the order of the struct changes. I'm glad they offer a named attribute option.
