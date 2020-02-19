@@ -77,8 +77,9 @@ func main() {
 	fmt.Println(card) // Five of Diamonds
 }
 ```
+
 ### Functions
-Use `func` to declare functions in Go.
+Use `func` to declare functions in Go. Go does not support function overloading.
 
 Functions that return must declare the return type.
 ```go
@@ -211,6 +212,43 @@ Some syntax associated with this:
 ![pointers-and-address-info](https://user-images.githubusercontent.com/16245634/74107990-ed524680-4b3a-11ea-945c-e9154ce7bb04.png)
 
 ![pointer-use-in-receiver-vs-in-use](https://user-images.githubusercontent.com/16245634/74108076-f4c61f80-4b3b-11ea-9a7c-02f03fd8fa3e.png)
+
+## Interfaces
+Interfaces are named collections of method signatures.
+
+Example:
+```go
+package main
+
+import "fmt"
+
+type bot interface {
+	getGreeting() string
+}
+
+type englishBot struct{}
+type spanishBot struct{}
+
+func main() {
+	eb := englishBot{}
+	sb := spanishBot{}
+
+	printGreeting(eb)
+	printGreeting(sb)
+}
+
+func printGreeting(b bot) {
+	fmt.Println(b.getGreeting())
+}
+
+func (englishBot) getGreeting() string {
+	return "Hello"
+}
+
+func (spanishBot) getGreeting() string {
+	return "Hola"
+}
+```
 
 #### Gotcha's in Go
 ![some-types-behave-different](https://user-images.githubusercontent.com/16245634/74108425-f0036a80-4b3f-11ea-95a1-5bd334beef49.png)
