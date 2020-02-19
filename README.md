@@ -11,8 +11,8 @@ Go is common in many [Cloud Native](https://www.cncf.io/) solutions such as Kube
 
 ## Learning Problems Completed
 - [cards](./cards) - A simple app that builds a deck of playing cards with functions for deal, shuffle, print, etc.
-- [even-and-odds](./even-and-odds) - A simple kata to parse a collection of numbers and print if they are even or odd.
-- [structs] - A simple bit of code to show the use of structs, pointers, and memory addresses.
+- [even-and-odds](./even-and-odds/main.go) - A simple kata to parse a collection of numbers and print if they are even or odd.
+- [structs](./structs/main.go) - A simple bit of code to show the use of structs, pointers, and memory addresses.
 
 ## Take Aways
 
