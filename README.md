@@ -214,7 +214,9 @@ Some syntax associated with this:
 ![pointer-use-in-receiver-vs-in-use](https://user-images.githubusercontent.com/16245634/74108076-f4c61f80-4b3b-11ea-9a7c-02f03fd8fa3e.png)
 
 ### Interfaces
-Interfaces are named collections of method signatures. You can list out as many functions for an interface as you want. You detail paramters and returns as well in an interface.
+Interfaces are named collections of method signatures. You can list out as many functions for an interface as you want. You detail parameters and returns as well in an interface.
+
+- Interfaces are not generic types
 
 Example:
 ```go
