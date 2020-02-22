@@ -1,5 +1,17 @@
 # Work in Progress (WIP)
 
+<p align="center" class="toc">
+   <strong><a href="#what-is-it">What is it?</a></strong>
+   |
+  <strong><a href="#things-i-like">Things I like</a></strong>
+   |
+   <strong><a href="#things-im-not-a-huge-fan-of">Things I'm not a huge fan of</a></strong>
+   |
+   <strong><a href="#learning-problems-completed">Learning Problems Completed</a></strong>
+   |
+   <strong><a href="#take-aways">Take Aways</a></strong>
+</p>
+
 ## What is it?
 It's a small set of hacks to learn [Go](https://golang.org/). I'm using `Golang go1.13.6 darwin/amd64` for this adventure.
 
@@ -9,10 +21,28 @@ Go is a statically typed, compiled programming language designed at Google by Ro
 
 Go is common in many [Cloud Native](https://www.cncf.io/) solutions such as Kubernetes, Terraform, Prometheus, and many more. It was the tenth most popular language in 2019 on GitHub
 
+## Things I like
+- Straight forward in most situations, almost boring which is a good thing
+- Types in Go feel simple :+1:
+- Short hand variables option (`foo := "bar"` instead of `var foo string = "bar"`)
+- Go's compiler checking import references on save
+- The UX provided by Microsoft's [VS Code go plugin](https://github.com/microsoft/vscode-go) is pretty great
+
+## Things I'm not a huge fan of
+- It's really opinionated
+- Go's convention of using single letter variables feels bad
+- Mandated formatting choices such as tabs for indents because it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Go reasons these benefits for this choice](https://golang.org/doc/effective_go.html#formatting). [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
+- Go's [struct](#structs) allowed construction of using ordered values feels prone to mistakes in the future when the order of the struct changes. I'm glad they offer a named attribute option.
+
 ## Learning Problems Completed
-- [cards](./cards) - A simple app that builds a deck of playing cards with functions for deal, shuffle, print, etc.
-- [even-and-odds](./even-and-odds/main.go) - A simple kata to parse a collection of numbers and print if they are even or odd.
-- [structs](./structs/main.go) - A simple bit of code to show the use of structs, pointers, and memory addresses.
+- [cards](./cards) - A simple app that builds a deck of playing cards with functions for deal, shuffle, print, etc
+- [even-and-odds](./even-and-odds/main.go) - A simple app to parse a collection of numbers and print if they are even or odd
+- [structs](./structs/main.go) - A simple app to show the use of structs, pointers, and memory addresses
+- [maps](./maps/main.go) - A simple app showing of the basics of Go maps
+- [interfaces](./interfaces/main.go) - A simple app showing of basics of Go interfaces
+- [http](./http/main.go) - A simple app to hit google.com and write out the contents of the html to the console
+- [shapes](./shapes/main.go) - A simple app to demonstrate multiple shapes implementing area differently and the interface they respect
+- [print-file](./print-file/) - A simple app to read a file specified from the command line and print out the contents on the console
 
 ## Take Aways
 
@@ -217,6 +247,9 @@ Some syntax associated with this:
 Interfaces are named collections of method signatures. You can list out as many functions for an interface as you want. You detail parameters and returns as well in an interface.
 
 - Interfaces are not generic types
+- Interfaces can be satisfied implicitly, meaning we don't need to write any extra code to say that some type satisfies an interface
+- When a type satisfies an interface it means the type implements all of the functions contained in the interface definition
+- A interface will help with ensuring types but not ensure that the code inside of the interface implements the desired behavior
 
 Example:
 ```go
@@ -268,17 +301,3 @@ Useful test command variants:
 - `go test -coverprofile=coverage.out` - Get a report of run tests
 - `go tool cover -html=coverage.out` - Get a nice HTML report of run tests
 - `go test -v` - A more detailed test report of what tests pass and what failed
-
-## Things I like
-- Types in Go feel simple :+1:
-- Short hand variables option
-- Go's compliler checking import references on save
-- The [VS Code go plugin](https://github.com/microsoft/vscode-go) written by Microsoft is pretty great
-
-## Things I'm not a huge fan of
-- It's really (really) opinionated
-- Mandated formatting choices
-  - Tabs for indents because it's [the Go "way"](https://github.com/golang/go/issues/16256#issuecomment-230173434). [Go reasons these benifits for this choice](https://golang.org/doc/effective_go.html#formatting). [This Chrome plugin](https://github.com/sindresorhus/tab-size-on-github) by the amazing [@sindresorhus](https://github.com/sindresorhus) helps my happiness with readable code.
-  - Comma dangle
-- Go's convention of using single letter variables feels bad
-- Go's [struct](#structs) allowed construction of using ordered values feels prone to mistakes in the future when the order of the struct changes. I'm glad they offer a named attribute option.
