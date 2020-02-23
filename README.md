@@ -24,6 +24,7 @@ Go is common in many [Cloud Native](https://www.cncf.io/) solutions such as Kube
 ## Things I like
 - Straight forward in most situations, almost boring which is a good thing
 - Types in Go feel simple :+1:
+- Parallel processing is simple with [Go Routines](#go-routines) and [Channels](#channels)
 - Short hand variables option (`foo := "bar"` instead of `var foo string = "bar"`)
 - Go's compiler checking import references on save
 - The UX provided by Microsoft's [VS Code go plugin](https://github.com/microsoft/vscode-go) is pretty great
@@ -43,6 +44,7 @@ Go is common in many [Cloud Native](https://www.cncf.io/) solutions such as Kube
 - [http](./http/main.go) - A simple app to hit google.com and write out the contents of the html to the console
 - [shapes](./shapes/main.go) - A simple app to demonstrate multiple shapes implementing area differently and the interface they respect
 - [print-file](./print-file/) - A simple app to read a file specified from the command line and print out the contents on the console
+- [channels] - A simple app to hit popular websites and report if they are up with concurrency via [Go Routines](#go-routines) and [Go Channels](#channels)
 
 ## Take Aways
 
@@ -285,7 +287,15 @@ func (spanishBot) getGreeting() string {
 }
 ```
 
-#### Gotcha's in Go
+## Go Routines
+A Go routine is a function that is capable of running concurrently with other functions. To create a Go routine we use the keyword `go` followed by a function invocation. The Go Scheduler handles executing code for a CPU core. The initial running code is referred to as the Main routine and the others (when needed) are referred to as Child Routines.
+
+## Channels
+Channels provide a way for two Go routines to communicate with one another and synchronize their execution.
+
+![Channel info](https://user-images.githubusercontent.com/16245634/75101072-adf51280-559c-11ea-8a58-e9e143b3f7e8.png)
+
+## Gotcha's in Go
 ![some-types-behave-different](https://user-images.githubusercontent.com/16245634/74108425-f0036a80-4b3f-11ea-95a1-5bd334beef49.png)
 
 - Everything in Go is pass by value
