@@ -1,4 +1,4 @@
-# Work in Progress (WIP)
+![logo](./media/readme-logo.jpg)
 
 <p align="center" class="toc">
    <strong><a href="#what-is-it">What is it?</a></strong>
