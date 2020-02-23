@@ -242,8 +242,10 @@ Some syntax associated with this:
 - `*foo` - Gives the value of this memory address is  pointing at
 
 ![pointers-and-address-info](https://user-images.githubusercontent.com/16245634/74107990-ed524680-4b3a-11ea-945c-e9154ce7bb04.png)
+_image from [Stephen Grider's Go: The Complete Developer's Guide (Golang) course](https://www.udemy.com/course/go-the-complete-developers-guide/)_
 
 ![pointer-use-in-receiver-vs-in-use](https://user-images.githubusercontent.com/16245634/74108076-f4c61f80-4b3b-11ea-9a7c-02f03fd8fa3e.png)
+_image from [Stephen Grider's Go: The Complete Developer's Guide (Golang) course](https://www.udemy.com/course/go-the-complete-developers-guide/)_
 
 ### Interfaces
 Interfaces are named collections of method signatures. You can list out as many functions for an interface as you want. You detail parameters and returns as well in an interface.
@@ -294,9 +296,11 @@ A Go routine is a function that is capable of running concurrently with other fu
 Channels provide a way for two Go routines to communicate with one another and synchronize their execution.
 
 ![Channel info](https://user-images.githubusercontent.com/16245634/75101072-adf51280-559c-11ea-8a58-e9e143b3f7e8.png)
+_image from [Stephen Grider's Go: The Complete Developer's Guide (Golang) course](https://www.udemy.com/course/go-the-complete-developers-guide/)_
 
 ## Gotcha's in Go
 ![some-types-behave-different](https://user-images.githubusercontent.com/16245634/74108425-f0036a80-4b3f-11ea-95a1-5bd334beef49.png)
+_image from [Stephen Grider's Go: The Complete Developer's Guide (Golang) course](https://www.udemy.com/course/go-the-complete-developers-guide/)_
 
 - Everything in Go is pass by value
 - When we create a slice in Go it will automatically create an array and a structure that records the length of the slice, the capacity of the slice, and a reference to the underlying array
