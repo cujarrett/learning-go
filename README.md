@@ -1,17 +1,3 @@
-![logo](./media/readme-logo.jpg)
-
-<p align="center" class="toc">
-   <strong><a href="#what-is-it">What is it?</a></strong>
-   |
-  <strong><a href="#things-i-like">Things I like</a></strong>
-   |
-   <strong><a href="#things-im-not-a-huge-fan-of">Things I'm not a huge fan of</a></strong>
-   |
-   <strong><a href="#learning-problems-completed">Learning Problems Completed</a></strong>
-   |
-   <strong><a href="#take-aways">Take Aways</a></strong>
-</p>
-
 ## What is it?
 It's a small set of hacks to learn [Go](https://golang.org/).
 
